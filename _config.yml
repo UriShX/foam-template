@@ -113,6 +113,10 @@ remote_theme: Drassil/git-wiki-theme
 optional_front_matter:
   remove_originals: true
 
+relative_links:
+  enabled: true
+  collections: true
+
 #
 # INCLUDING HOOKS
 # They are optional, change them only if you need

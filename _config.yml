@@ -26,7 +26,7 @@ logo_url:
 google_analytics:
 # (string) folder where wiki pages are stored, it's needed for tool buttons
 # wiki_folder: "wiki"
-wiki_folder: "docs"
+wiki_folder: "docs/features"
 # (boolean) if you're using github wiki as submodule then this config
 # must be enabled to allow tool buttons to work properly
 use_github_wiki: false
@@ -84,7 +84,7 @@ defaults:
     values:
       layout: "git-wiki-post"
   - scope:
-      path: docs
+      path: assets/blog
     values:
       layout: "git-wiki-blog"
 sass:

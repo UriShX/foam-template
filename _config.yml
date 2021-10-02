@@ -117,6 +117,8 @@ relative_links:
   enabled: true
   collections: true
 
+collections:
+  - docs
 #
 # INCLUDING HOOKS
 # They are optional, change them only if you need

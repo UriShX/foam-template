@@ -15,7 +15,9 @@ show_wiki_posts_limit: 10
 # from jekyll (read jekyll doc)
 paginate: 5
 paginate_path: "assets/blog/page:num"
-permalink: /blog/posts/:year/:month/:day/:title:output_ext
+# permalink: /blog/posts/:year/:month/:day/:title:output_ext
+# Generate permalinks in format specified in: https://jekyllrb.com/docs/permalinks/#built-in-formats
+permalink: pretty
 # (boolean) Enable/disable download buttons in sidebar
 show_downloads: true
 # (string) Specify branch rendered by gitpages allowing wiki tool buttons to work
@@ -117,8 +119,6 @@ relative_links:
   enabled: true
   collections: true
 
-collections:
-  - docs
 #
 # INCLUDING HOOKS
 # They are optional, change them only if you need

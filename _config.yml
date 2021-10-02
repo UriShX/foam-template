@@ -26,7 +26,7 @@ logo_url:
 google_analytics:
 # (string) folder where wiki pages are stored, it's needed for tool buttons
 # wiki_folder: "wiki"
-wiki_folder: "docs/features"
+wiki_folder: "docs"
 # (boolean) if you're using github wiki as submodule then this config
 # must be enabled to allow tool buttons to work properly
 use_github_wiki: false
@@ -90,6 +90,7 @@ defaults:
 sass:
   style: compressed
 plugins:
+  - jekyll-relative-links
   - jekyll-avatar
   - jekyll-coffeescript
   - jekyll-default-layout
@@ -101,7 +102,6 @@ plugins:
   - jekyll-readme-index
   - jekyll-redirect-from
   - jekyll-remote-theme
-  - jekyll-relative-links
   - jekyll-seo-tag
   - jekyll-sitemap
   - jekyll-titles-from-headings

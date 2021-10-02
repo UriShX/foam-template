@@ -1,0 +1,74 @@
+{% if site.inc_before_scripts %} {% include {{ site.inc_before_scripts }} %} {%
+endif %}
+
+<script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"
+></script>
+<script src="{{ '/assets/js/checkLinks.js' | relative_url }}"></script>
+<!--[if lt IE 9]>
+  <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+<![endif]-->
+
+<script type="text/javascript">
+  // NOTE: this should be in sync with the settings/usage in the vscode extension
+  // atm it's just a wide superset of md extensions to cover a wide range of cases
+  var MD_EXT = [
+    ".md",
+    ".markdown",
+    ".mdx",
+    ".mdown",
+    ".mkdn",
+    ".mkd",
+    ".mdwn",
+    ".mdtxt",
+    ".mdtext",
+    ".text",
+    ".Rmd",
+  ];
+  function normalizeMdLink(link) {
+    var url = new URL(link);
+    var mdFileExt = MD_EXT.find((ext) => url.pathname.endsWith(ext));
+    if (mdFileExt) {
+      url.pathname = url.pathname.slice(0, mdFileExt.length * -1);
+    }
+    return url.toString();
+  }
+
+  window.addEventListener("DOMContentLoaded", (event) => {
+    document
+      .querySelectorAll(".markdown-body a[title]:not([href^=http])")
+      .forEach((a) => {
+        // filter to only wiki-links
+        var prev = a.previousSibling;
+        var next = a.nextSibling;
+        if (
+          prev instanceof Text &&
+          prev.textContent.endsWith("[") &&
+          next instanceof Text &&
+          next.textContent.startsWith("]")
+        ) {
+          // remove surrounding brackets
+          prev.textContent = prev.textContent.slice(0, -1);
+          next.textContent = next.textContent.slice(1);
+
+          // add CSS list for styling
+          a.classList.add("wikilink");
+
+          // replace page-link with "Page Title"...
+          a.innerText = a.title;
+
+          // ...and normalize the links to allow html pages navigation
+          a.href = normalizeMdLink(a.href);
+        }
+      });
+
+    document.querySelectorAll(".github-only").forEach((el) => {
+      el.remove();
+    });
+  });
+</script>
+
+{% if site.inc_after_scripts %} {% include {{ site.inc_after_scripts }} %} {%
+endif %}

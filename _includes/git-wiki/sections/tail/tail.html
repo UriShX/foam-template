@@ -46,4 +46,15 @@ append: "," %} {% endfor %}
     }
   });
 </script>
+
+<script>
+  // Hack: Remove .md extension from wikilinks to get the html in jekyll
+  window.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll("a").forEach((l) => {
+      if (l.href.endsWith(".md")) {
+        l.href = l.href.substring(0, l.href.length - 3);
+      }
+    });
+  });
+</script>
 {% if site.inc_after_tail %} {% include {{ site.inc_after_tail }} %} {% endif %}

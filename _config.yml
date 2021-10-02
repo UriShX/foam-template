@@ -90,6 +90,7 @@ defaults:
 sass:
   style: compressed
 plugins:
+  - jekyll-wikilinks
   - jekyll-avatar
   - jekyll-coffeescript
   - jekyll-default-layout
@@ -107,15 +108,26 @@ plugins:
   - jekyll-titles-from-headings
   - jemoji
   # plugins:
-  - jekyll-remote-theme
-  - jekyll-optional-front-matter
-  - jekyll-readme-index
-  - jekyll-default-layout
-  - jekyll-titles-from-headings
-  - jekyll-relative-links
-  - jekyll-wikilinks
 
 remote_theme: Drassil/git-wiki-theme
+
+wikilinks:
+  attributes:
+    enabled: true
+  css:
+    exclude: []
+    name:
+      wiki: "wiki-link"
+      web: "web-link"
+      invalid_wiki: "invalid-wiki-link"
+      embed_container: "embed-container"
+      embed_title: "embed-title"
+      embed_content: "embed-content"
+      embed_link: "embed-wiki-link"
+      embed_image_container: "embed-image-container"
+      embed_image: "embed-image"
+  enabled: true
+  exclude: []
 
 optional_front_matter:
   remove_originals: true

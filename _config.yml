@@ -117,7 +117,7 @@ optional_front_matter:
 
 relative_links:
   enabled: true
-  collections: true
+  collections: false
 
 #
 # INCLUDING HOOKS

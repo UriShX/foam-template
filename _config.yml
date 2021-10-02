@@ -84,7 +84,7 @@ defaults:
     values:
       layout: "git-wiki-post"
   - scope:
-      path: assets/blog
+      path: docs
     values:
       layout: "git-wiki-blog"
 sass:

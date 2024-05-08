@@ -4,7 +4,11 @@
   "editor.overviewRulerBorder": false,
   "editor.lineHeight": 24,
   "[markdown]": {
-    "editor.quickSuggestions": true
+    "editor.quickSuggestions": {
+      "comments": "on",
+      "strings": "on",
+      "other": "on"
+    }
   },
   "files.defaultLanguage": "markdown",
   "files.exclude": {
@@ -25,4 +29,17 @@
   "spellright.notificationClass": "warning",
   "vscodeMarkdownNotes.noteCompletionConvention": "noExtension",
   "vscodeMarkdownNotes.slugifyMethod": "github-slugger",
+  
+    "ego.power-tools": {
+        "buttons": [
+            {
+                "text": "Get daily note from Google docs",
+                "tooltip": "Runs the script to get daily notes from Google docs",
+                "action": {
+                    "type": "shell",
+                    "command": "venv/bin/python python_scripts/daily_notes_from_google_docs/get_daily_notes_from_google_docs.py"
+                }
+            }
+        ]
+    }
 }

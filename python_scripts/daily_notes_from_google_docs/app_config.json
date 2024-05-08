@@ -1,0 +1,10 @@
+{
+    "secrets": {
+        "secrets_folder": "secrets",
+        "credentials_file": "credentials2.json",
+        "token_file": "token.json"
+    },
+    "document_id": "1WmEad5dFXALEPS9mUGSCTk50zydzn0S1nFE0WNJ9hEs",
+    "get_filename_from_document": true,
+    "clear_document_after_download": true
+}

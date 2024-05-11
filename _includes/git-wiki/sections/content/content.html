@@ -30,6 +30,9 @@
                     {% assign result = autolinks[forloop.index0] %}
                 {% endif %}
             {% endfor %}
+            {% if result == "" %}
+                {% assign result = site.pages | where: 'title',itemparts[0] %}
+            {% endif %}
             {% if forloop.index == 2 %}
                 {% assign urls = result %}
             {% else %}

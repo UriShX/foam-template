@@ -10,7 +10,7 @@
     {% endif %}
 
     <div id="git-wiki-content">
-      {% assign contentarray = page.content | split:'[[' %}
+      {% assign contentarray = content | split:'[[' %}
       {% for item in contentarray %}
           {% if forloop.index > 1 %}
               {% assign itemparts = item | split:']]' %}
@@ -19,6 +19,7 @@
               {% else %}
                   {% assign links = links | append: ',' | append: itemparts[0] %}
               {% endif %}
+              <!-- {{ itemparts }} -->
               {% assign result = site.pages | where: 'title',itemparts[0] %}
               {% if forloop.index == 2 %}
                   {% assign urls = result[0].url %}

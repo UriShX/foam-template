@@ -19,13 +19,14 @@
               {% else %}
                   {% assign links = links | append: ',' | append: itemparts[0] %}
               {% endif %}
-              <!-- {{ itemparts }} -->
+              {{ itemparts }}
               {% assign result = site.pages | where: 'title',itemparts[0] %}
               {% if forloop.index == 2 %}
                   {% assign urls = result[0].url %}
               {% else %}
                   {% assign urls = urls | append: ',' | append: result[0].url %}
               {% endif %}
+              {{ result }}
           {% endif %}
       {% endfor %}
       

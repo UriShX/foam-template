@@ -40,7 +40,7 @@
           {% assign replacedcontent = replacedcontent | replace: bracketlink,linktext %}
       {% endfor %}
       
-      {{ replacedcontent | markdownify }}
+      {{ replacedcontent }}
     </div>
 
     {% if site.inc_after_content %}

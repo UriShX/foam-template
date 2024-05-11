@@ -9,8 +9,12 @@
     {% include {{ site.inc_before_content }} %}
     {% endif %}
 
+    {% assign contentarray = content | split:'[//begin]' %}
+    {% assign contentarray[1] = contentarray[1] | replace:'.md','.html' %}
+    {% assign content = contentarray[0] | append:contentarray[1] %}
+
     <div id="git-wiki-content">
-      {% assign contentarray = content | split:'[[' %}
+      <!-- {% assign contentarray = content | split:'[[' %}
       {% for item in contentarray %}
           {% if forloop.index > 1 %}
               {% assign itemparts = item | split:']]' %}
@@ -40,7 +44,8 @@
           {% assign replacedcontent = replacedcontent | replace: bracketlink,linktext %}
       {% endfor %}
       
-      {{ replacedcontent }}
+      {{ replacedcontent | markdownify }} -->
+      {{ content }}
     </div>
 
     {% if site.inc_after_content %}

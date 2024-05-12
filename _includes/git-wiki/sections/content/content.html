@@ -9,10 +9,9 @@
     {% include {{ site.inc_before_content }} %}
     {% endif %}
 
-    {% assign contentarray = content | split:'[//begin]' %}
+    <!-- {% assign contentarray = content | split:'[//begin]' %}
     {% assign autolinks = contentarray[1] | replace:'.md','.html' | split:'\n' %}
     {% assign autolink_names = autolinks | split:']' | replace:'[','' %}
-    <!-- {% assign content = contentarray[0] | append:contentarray[1] %} -->
 
     {% assign contentarray = content | split:'[[' %}
     {% for item in contentarray %}
@@ -23,7 +22,7 @@
             {% else %}
                 {% assign links = links | append: ',' | append: itemparts[0] %}
             {% endif %}
-            <!-- {{ itemparts }} -->
+            {{ itemparts }}
             {% assign result = "" %}
             {% for name in autolink_names %}
                 {% if name == itemparts[0] %}
@@ -38,7 +37,7 @@
             {% else %}
                 {% assign urls = urls | append: ',' | append: result %}
             {% endif %}
-            <!-- {{ result }} -->
+            {{ result }}
         {% endif %}
     {% endfor %}
     
@@ -52,7 +51,7 @@
         {% assign replacedcontent = replacedcontent | replace: bracketlink,linktext %}
     {% endfor %}
     
-    <!-- {{ replacedcontent | markdownify }} -->
+    {{ replacedcontent | markdownify }} -->
     <div id="git-wiki-content">
       {{ content }}
     </div>

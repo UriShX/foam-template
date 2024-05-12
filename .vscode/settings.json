@@ -17,7 +17,10 @@
   "files.watcherExclude": {
     "**/node_modules": true
   },
-  "foam.edit.linkReferenceDefinitions": "withExtensions",
+  "foam.edit.linkReferenceDefinitions": "withoutExtensions",
+  "foam.files.ignore": [
+    "_site/**/*"
+  ],
   "foam.openDailyNote.directory": "journal",
   "foam.openDailyNote.titleFormat": "fullDate",
   "git.enableSmartCommit": true,
@@ -41,5 +44,6 @@
                 }
             }
         ]
-    }
+    },
+    "liquid.engine": "jekyll"
 }

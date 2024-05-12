@@ -9,11 +9,11 @@
     {% include {{ site.inc_before_content }} %}
     {% endif %}
 
-    <!-- {% assign contentarray = content | split:'[//begin]' %}
-    {% assign autolinks = contentarray[1] | replace:'.md','.html' | split:'\n' %}
-    {% assign autolink_names = autolinks | split:']' | replace:'[','' %}
+    <div id="git-wiki-content">
+      {{ content }}
+    </div>
 
-    {% assign contentarray = content | split:'[[' %}
+    {% comment %} {% assign contentarray = content | split:'[[' %}
     {% for item in contentarray %}
         {% if forloop.index > 1 %}
             {% assign itemparts = item | split:']]' %}
@@ -22,72 +22,46 @@
             {% else %}
                 {% assign links = links | append: ',' | append: itemparts[0] %}
             {% endif %}
-            {{ itemparts }}
-            {% assign result = "" %}
-            {% for name in autolink_names %}
-                {% if name == itemparts[0] %}
-                    {% assign result = autolinks[forloop.index0] %}
-                {% endif %}
-            {% endfor %}
-            {% if result == "" %}
-                {% assign result = site.pages | where: 'title',itemparts[0] %}
-            {% endif %}
-            {% if forloop.index == 2 %}
-                {% assign urls = result %}
+            {% assign result = site.pages | where: 'title',itemparts[0] %}
+            {{ itemparts[0] }}
+            {% if result and result.size != 0 %}
+                <p>{{ result }}</p>
+                <p>{{ result[0].url }}</p>
+                <br>
             {% else %}
-                {% assign urls = urls | append: ',' | append: result %}
+                <p>No Match Found</p>
+                <br>
             {% endif %}
-            {{ result }}
+            
+            {% if result and result.size != 0 %}
+                {% if forloop.index == 2 %}
+                    {% assign urls = '_' %}
+                {% else %}
+                    {% assign urls = urls | append: ',' | append: '_' %}
+                {% endif %}
+            {% else %}
+                {% if forloop.index == 2 %}
+                    {% assign urls = result[0].url %}
+                {% else %}
+                    {% assign urls = urls | append: ',' | append: result[0].url %}
+                {% endif %}
+            {% endif %}
         {% endif %}
     {% endfor %}
-    
+
     {% assign urlarray = urls | split:',' %}
     {% assign linkarray = links | split:',' %}
-    
-    {% assign replacedcontent = page.content %}
+
+    {% assign replacedcontent = content %}
     {% for item in linkarray %}
-        {% assign linktext = '<a href="' | append: urlarray[forloop.index0] | append: '">' | append: item | append: '</a>' %}
-        {% assign bracketlink = '[[' | append: item | append: ']]' %}
-        {% assign replacedcontent = replacedcontent | replace: bracketlink,linktext %}
+        {% if urlarray[forloop.index0] != "_" %}
+            {% assign linktext = '<a href="' | append: urlarray[forloop.index0] | append: '">' | append: item | append: '</a>' %}
+            {% assign bracketlink = '[[' | append: item | append: ']]' %}
+            {% assign replacedcontent = replacedcontent | replace: bracketlink,linktext %}
+        {% endif %}
     {% endfor %}
-    
-    {{ replacedcontent | markdownify }} -->
-    <div id="git-wiki-content">
-        {% assign contentarray = content | split:'[[' %}
-{% for item in contentarray %}
-    {% if forloop.index > 1 %}
-        {% assign itemparts = item | split:']]' %}
-        {% if forloop.index == 2 %}
-            {% assign links = itemparts[0] %}
-        {% else %}
-            {% assign links = links | append: ',' | append: itemparts[0] %}
-        {% endif %}
-        {% assign result = site.pages | where: 'title',itemparts[0] %}
-        {% if forloop.index == 2 %}
-            {% assign urls = result[0].url %}
-        {% else %}
-            {% assign urls = urls | append: ',' | append: result[0].url %}
-        {% endif %}
-    {% endif %}
-{% endfor %}
 
-{% assign urlarray = urls | split:',' %}
-{% assign linkarray = links | split:',' %}
-
-{% assign replacedcontent = content %}
-{% for item in linkarray %}
-    {% if urlarray[forloop.index0] == " " %}
-        {% assign linktext = '<a href=" " class="wikilink">' | append: item | append: '</a>' %}
-    {% else %}
-        {% assign linktext = '<a href="' | append: urlarray[forloop.index0] | append: '">' | append: item | append: '</a>' %}
-    {% endif %}
-    {% assign bracketlink = '[[' | append: item | append: ']]' %}
-    {% assign replacedcontent = replacedcontent | replace: bracketlink,linktext %}
-{% endfor %}
-
-<!-- {{ replacedcontent | markdownify }} -->
-      {{ content }}
-    </div>
+    {{ replacedcontent | markdownify }} {% endcomment %}
 
     {% if site.inc_after_content %}
     {% include {{ site.inc_after_content }} %}

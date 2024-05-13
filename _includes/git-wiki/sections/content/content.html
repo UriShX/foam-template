@@ -10,7 +10,7 @@
     {% endif %}
 
     {% for p in site.pages %}
-        {{ p.url }}
+        [{{ p.name }}]: ({{ p.url }}) "{{ p.title }}"
         <br>
     {% endfor %}
     

@@ -17,7 +17,7 @@
   "files.watcherExclude": {
     "**/node_modules": true
   },
-  "foam.edit.linkReferenceDefinitions": "withoutExtensions",
+  "foam.edit.linkReferenceDefinitions": "withExtensions",
   "foam.files.ignore": [
     "_site/**/*"
   ],

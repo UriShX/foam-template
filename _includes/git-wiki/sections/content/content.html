@@ -22,14 +22,14 @@
         {% assign link_name = markdown_link[0] %}
         {% assign url_and_title = markdown_link[1] | split:' "' %}
         {% assign url = url_and_title[0] | remove:'.md' %}
-        {% assign title = url_and_title[1] | remove:'"' %}
-        {% assign result = site.pages | where: 'url',itemparts[0] %}
+        {% assign title = url_and_title[1] | remove:'"' | strip_newlines %}
+        {% assign result = site.pages | where: 'title',title %}
         <br>
         {{ link_name }}
         <br>
         {{ url }} : {{ result[0].url }}
         <br>
-        {{ title }}
+        {{ title | inspect }}
         <br>
     {% endfor %}
     

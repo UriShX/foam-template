@@ -68,7 +68,7 @@
     {% assign contentarray = new_array %} <!-- Replace the old array with the new one -->
     {{ contentarray[1] }}
     <br>
-    {% assign page.content = contentarray | join:'' | markdownify %}
+    {% assign page.content = contentarray | join:'' %}
     
     <div id="git-wiki-content">
       {{ content }}

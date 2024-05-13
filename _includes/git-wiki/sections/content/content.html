@@ -9,6 +9,8 @@
     {% include {{ site.inc_before_content }} %}
     {% endif %}
 
+    baseurl: {{ site.baseurl }}
+    <br>
     {% for p in site.pages %}
         [{{ p.name }}]: ({{ p.url }}) "{{ p.title }}"
         <br>
@@ -46,7 +48,7 @@
     {% assign replacedcontent = page.content %}
     {% for item in md_links_array %}
         {% if urlarray[forloop.index0] != "_" %}
-            {% assign linktext = '<a href="' | append: urlarray[forloop.index0] | append: '">' | append: item | append: '</a>' %}
+            {% assign linktext = '<a href="' | append: site.baseurl | append: urlarray[forloop.index0] | append: '">' | append: item | append: '</a>' %}
             {% assign bracketlink = '[[' | append: item | append: ']]' %}
             {% assign replacedcontent = replacedcontent | replace: bracketlink,linktext %}
         {% endif %}

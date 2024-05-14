@@ -8,8 +8,7 @@ Giftedness, in most general terms, refers to an individual who shows exceptional
 It's important to note that definitions of giftedness can vary widely among different cultures, societies, and educational systems. Some definitions focus solely on intellectual ability (often measured by high IQ scores), while others may include creative abilities, leadership qualities, or specific talents in areas like music or art[^2].
 
 ## Related Files
-- [[Traits of Gifted Individuals]] - A list of common traits and characteristics of gifted individuals.
-- [[traits-of-gifted-individuals]]
+- [[traits-of-gifted-individuals]] - A list of common traits and characteristics of gifted individuals.
 - [[giftedness-traits]]
 - [[Misconceptions about Giftedness]]
 - [[Identification of Giftedness]]

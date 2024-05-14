@@ -19,9 +19,11 @@
   },
   "foam.edit.linkReferenceDefinitions": "withExtensions",
   "foam.files.ignore": [
-    "_site/**/*"
+    "_site/**/*",
+    "_drafts/**/*"
   ],
-  "foam.openDailyNote.directory": "journal",
+  "foam.openDailyNote.directory": "_posts",
+  "foam.openDailyNote.filenameFormat": "yyyy-mm-dd-'daily-note'",
   "foam.openDailyNote.titleFormat": "fullDate",
   "git.enableSmartCommit": true,
   "git.postCommitCommand": "sync",

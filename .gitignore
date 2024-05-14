@@ -205,3 +205,4 @@ pyrightconfig.json
 
 ## private files
 secrets/
+# _drafts/

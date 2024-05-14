@@ -23,6 +23,10 @@ app_config = {}
 with open(Path(file_path,"app_config.json"), "r") as f:
     app_config = json.load(f)
 
+with open(Path(file_path,app_config["secrets"]["secrets_folder"],app_config["secrets"]["document_secrets"]), "r") as f:
+    _document_id = json.load(f)
+    app_config["document_id"] = _document_id["document_id"]
+
 # If modifying these scopes, delete the file token.json.
 SCOPES = ["https://www.googleapis.com/auth/drive", "https://www.googleapis.com/auth/drive.file"]
 
@@ -160,8 +164,17 @@ def convert_html_to_markdown(html_filename):
     return markdown_content
 
 def save_markdown_to_file(markdown_content, html_filename="daily_notes"):
+    # get the defined directory name from the app_config
+    directory_name = app_config["imported_document_folder"]
+    # check if the directory name is empty, and if so set it to the current directory
+    if directory_name == "":
+        directory_name = "."       
+    # check if the directory exists
+    if not os.path.exists(directory_name):
+        os.makedirs(directory_name)
+
     # save the markdown content to a file with the same name as the html file + current date in YYYY-MM-DD format
-    html_filename = f"{html_filename}-{datetime.datetime.now().strftime('%Y-%m-%d')}"
+    html_filename = f"{directory_name}/{html_filename}-{datetime.datetime.now().strftime('%Y-%m-%d')}"
     # check if the file already exists
     if os.path.exists(f"{html_filename}.md"):
         print("File already exists.")

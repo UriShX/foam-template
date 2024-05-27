@@ -17,7 +17,7 @@
             {% assign markdown_link = item | split:']:' %}
             {% assign link_name = markdown_link[0] %}
             {% assign url_and_title = markdown_link[1] | split:' "' %}
-            {% assign url = url_and_title[0] | remove:'.md' %}
+            {% assign url = url_and_title[0] %}
             {% assign title = url_and_title[1] | remove:'"' | strip_newlines %}
             {% assign result = site.pages | where: 'title',title %}
     

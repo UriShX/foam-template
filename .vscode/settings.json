@@ -24,7 +24,7 @@
   ],
   "foam.openDailyNote.directory": "_posts",
   "foam.openDailyNote.filenameFormat": "yyyy-mm-dd-'daily-note'",
-  "foam.openDailyNote.titleFormat": "fullDate",
+  "foam.openDailyNote.titleFormat": "dddd, yyyy-mm-dd",
   "git.enableSmartCommit": true,
   "git.postCommitCommand": "sync",
   "markdown.preview.breaks": true,

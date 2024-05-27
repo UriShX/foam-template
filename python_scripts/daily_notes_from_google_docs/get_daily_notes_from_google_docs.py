@@ -49,12 +49,13 @@ def main():
   # If there are no (valid) credentials available, let the user log in.
   if not creds or not creds.valid:
     if creds and creds.expired and creds.refresh_token:
-      creds.refresh(Request())
+        creds.refresh(Request())
     else:
-      flow = InstalledAppFlow.from_client_secrets_file(
-          credentials_file, SCOPES
-      )
-      creds = flow.run_local_server(port=0)
+        flow = InstalledAppFlow.from_client_secrets_file(
+            credentials_file, SCOPES
+        )
+    #   creds = flow.run_local_server(port=0)
+        creds = flow.run_local_server(port=0, access_type='offline', prompt='consent')
     # Save the credentials for the next run
     with open(token_file, "w") as token:
       token.write(creds.to_json())

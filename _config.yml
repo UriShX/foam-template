@@ -1,3 +1,4 @@
+# url: "https://yourusername.github.io"
 # (string) Title of your wiki
 title: "Personal Knowledge Management"
 # (string) Description of your wiki
@@ -112,7 +113,6 @@ plugins:
   - jekyll-sitemap
   - jekyll-titles-from-headings
   - jemoji
-  # plugins:
 
 remote_theme: Drassil/git-wiki-theme
 
@@ -129,10 +129,10 @@ relative_links:
 # Check wiki documentation to learn how they work
 #
 
-inc_before_toc:
+inc_before_toc: "/git-wiki/sections/content/ai_warning.html"
 inc_after_toc:
 inc_before_content:
-inc_after_content:
+inc_after_content: "/git-wiki/sections/content/notes_graph.html"
 inc_before_footer:
 inc_after_footer:
 inc_before_head:

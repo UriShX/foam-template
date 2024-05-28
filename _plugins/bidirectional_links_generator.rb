@@ -69,7 +69,7 @@ module BidirectionalLinksGenerator
 
         graph_nodes << {
             id: note_id_from_note(current_note),
-            path: "#{site.baseurl}#{current_note.url}",
+            path: "#{current_note.url}",
             label: current_note_name
           } if current_note.path.end_with?('.md')
 

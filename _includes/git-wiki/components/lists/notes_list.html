@@ -1,0 +1,24 @@
+<span class="post-list-title">Daily notes {% if (site.show_wiki_posts_limit >= 1 %} (Latest {{site.show_wiki_posts_limit
+    }} updated) {% endif %}:</span>
+<ul class="post-list">
+    {% assign numPages=0 %}
+    {% assign items = site.notes | sort: 'date' %}
+    {% for note in items %}
+        {% if numPages >= site.show_wiki_posts_limit %}
+            {% break %}
+        {% endif %}
+
+        {% if note.layout != "null" and note.sitemap != false and note.date %}
+            {% assign note_date = note.date | date: "%Y-%m-%d" %}
+            
+            <li class="post-list-item">
+                <a href="{{ note.url | relative_url }}">{{ note_date | escape }}</a>
+            </li>
+            {% assign numPages = numPages | plus: 1 %}
+        {% endif %}
+
+    {% endfor %}
+</ul>
+
+<span class="post-list read-all"><a href="{{ '/assets/blog/' | relative_url}}">Read all</a></span>
+<br><br>

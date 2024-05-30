@@ -1,0 +1,107 @@
+<style>
+    .graph-button {
+        --main-bg: #fafafc;
+        --note-bg: #fff;                    
+        --text: #1a202c;
+        --separator: #e2e8f0;
+        --shadow: rgba(0,0,0,0.1);
+        --link: #3182ce;
+        --references-bg: #ebf4ff;
+        --references-bg-80: rgba(235,244,255,0.8);
+        --references-bg-0: rgba(235,244,255,0);
+        --references-text: #718096;
+        --references-highlight: #4a5568;
+        box-sizing: border-box;
+        border: 0;
+        background: black;
+        width: 3rem;
+        height: 3rem;
+        border-radius: 50%;
+        position: fixed;
+        bottom: 86px;
+        right: 32px;
+        cursor: pointer;
+    }
+    .graph-button svg {
+        display: block;
+        margin: 0 auto;
+    }
+    .graph-button:hover {
+        background: #1a202c;
+    }
+    .graph-button:focus {
+        outline: none;
+        box-shadow: 0 0 0 3px rgba(66,153,225,0.5);
+    }
+
+    .graph-button:active:hover {
+        background: #1a202c;
+    }
+    .graph-button g {
+        fill: var(--references-text);
+        stroke: var(--references-bg-80);
+    }
+    #hider
+    {
+        position:absolute;
+        top: 0%;
+        left: 0%;
+        width:200em;
+        height:200em;
+        margin: -50em; /*set to a negative number 1/2 of your height*/
+        /* margin-left: -750vw; set to a negative number 1/2 of your width */
+        /*
+        z- index must be lower than pop up box
+       */
+        z-index: 99;
+       background-color:Black;
+       /* for transparency */
+       opacity:0.6;
+    }
+</style>
+<div id="hider"></div>
+<button title="Show Graph visualisation" aria-label="Show Graph visualisation" class="graph-button" id="graph-button"><svg
+        xmlns="http://www.w3.org/2000/svg" width="20" height="20">
+        <g fill="white" stroke-width="2" stroke="black">
+            <circle cx="11.733" cy="3.181" r="1.902"></circle>
+            <circle cx="16.864" cy="10.861" r="1.902"></circle>
+            <circle cx="7.47" cy="16.822" r="1.902"></circle>
+            <circle cx="3.046" cy="6.275" r="1.902"></circle>
+            <circle cx="9.372" cy="10.861" r="1.902"></circle>
+            <line x1="11.635" x2="14.655" y1="10.861" y2="10.861"></line>
+            <line x1="10" x2="10.895" y1="8.959" y2="5.573"></line>
+            <line x1="7.47" x2="4.5" y1="9.68" y2="7.5"></line>
+            <line x1="8.25" x2="8.809" y1="14.92" y2="13.088"></line>
+        </g>
+    </svg>
+</button>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        hide_graph();
+    });
+
+    document.querySelector("#graph-button").addEventListener("click", function () {
+        console.log("Show Graph visualisation");
+        document.querySelector("#hider").style.display = "block";
+        document.querySelector("#graph-wrapper").style.display = "block";
+        // document.querySelector("#graph-wrapper").style.width = "100%";
+        // document.querySelector("#graph-wrapper").style.height = "auto";
+    });
+
+    document.querySelector("#hider").addEventListener("click", function () {
+        hide_graph();
+    });
+
+    document.querySelector("#buttonClose").addEventListener("click", function () {
+        hide_graph();
+    });
+
+    function hide_graph() {
+        console.log("Hide Graph visualisation");
+        document.querySelector("#hider").style.display = "none";
+        document.querySelector("#graph-wrapper").style.display = "none";
+        // document.querySelector("#graph-wrapper").style.width = "0";
+        // document.querySelector("#graph-wrapper").style.height = "0";
+    };
+</script>

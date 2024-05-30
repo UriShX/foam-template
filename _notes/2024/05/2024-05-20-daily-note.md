@@ -1,4 +1,6 @@
-# Monday, May 20, 2024
+---
+published: true
+---
 # Daily Notes for 2024-05-20
 
 Today, I had a conversation with my brother. His innovative ideas to improve his situation inspired me. It gave me a push to continue exploring my own passions. I've decided to try the "Ikigai" concept. I'm starting to lose faith in myself, and I'm willing to try anything that might help.

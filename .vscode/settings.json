@@ -22,7 +22,7 @@
     "_site/**/*",
     "_drafts/**/*"
   ],
-  "foam.openDailyNote.directory": "_posts",
+  "foam.openDailyNote.directory": "_notes",
   "foam.openDailyNote.filenameFormat": "yyyy-mm-dd-'daily-note'",
   "foam.openDailyNote.titleFormat": "dddd, yyyy-mm-dd",
   "git.enableSmartCommit": true,

@@ -1,4 +1,6 @@
-# Wednesday, 2024-05-22
+---
+published: true
+---
 # Daily Notes for 2024-05-22
 
 A few years ago, while trying to build my freelance business and considering shipping my own electronics project on Tindie, I read the book "Grit". Reflecting on my current situation, I don't think I lack grit, but I'm struggling to find meaning in my endeavors.

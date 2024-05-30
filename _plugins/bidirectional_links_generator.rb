@@ -6,10 +6,11 @@ module BidirectionalLinksGenerator
       graph_edges = []
 
       # all_notes = site.collections['_posts'].docs
-      all_notes = site.posts.docs
+      all_posts = site.posts.docs
       all_pages = site.pages
+      all_notes = site.collections['notes'].docs
 
-      all_docs = all_notes + all_pages
+      all_docs = all_notes + all_pages + all_posts
       # print all_docs
       puts "Generating bidirectional links..."
       puts "#{site.baseurl}"
